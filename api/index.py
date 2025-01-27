@@ -25,6 +25,6 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type','application/json')
         self.end_headers()
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.wfile.write(json.dumps({"message": "Hello!"}).encode('utf-8'))
-        return response
+        self.wfile.write(response.encode('utf-8'))
+        return 
     
