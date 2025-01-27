@@ -6,6 +6,7 @@ with open("q-vercel-python.json", "r") as file:
     data = json.load(file)
 
 name_to_marks = {entry["name"]: entry["marks"] for entry in data}
+
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         # Parse request URL
@@ -23,8 +24,9 @@ class handler(BaseHTTPRequestHandler):
 
         self.send_response(200)
         self.send_header('Content-type','application/json')
-        self.end_headers()
         self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        
         self.wfile.write(response.encode('utf-8'))
         return 
     
